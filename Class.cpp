@@ -8,8 +8,6 @@
 #include "fmod.h"
 #include "texture.h"
 
-#define TEST
-
 //各变量定义:
 extern TextureTga	playertex[3];				// 纹理数组，保存纹理名字
 extern TextureTga  computertex[3];
