@@ -1,0 +1,5 @@
+/Release/*
+*.exe
+*.sdf
+*.suo
+*.pdb
