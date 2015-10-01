@@ -2,23 +2,23 @@
 #define CLASS_H
 
 
-// 宏定义:
-#define	PI					3.1415927	// 定义PI的值
 
-#define MAX_AMMUNITION		1000	// 子弹数组的大小
-#define MAX_COMPUTER		20			// 电脑的个数
-#define MAX_AWARD			 40			// 物品数组大小
-#define MAX_PLAYER			1			// 玩家飞机个数
+#define	PI					3.1415927	
 
-#define AMMUNITION_RANGE	750			// 子弹的射程
-#define BOMB_RANGE			   80			  // 炸弹的射程
-#define	BOMB_BLAST_RANGE	150			// 炸弹爆炸的影响范围
+#define MAX_AMMUNITION		1000	
+#define MAX_COMPUTER		20			
+#define MAX_AWARD			 40			
+#define MAX_PLAYER			1			
 
-#define START_BOMB_NUMBER	 0			// 开始时炸弹的数目
-#define WIN_SCORE			500000		// 达到胜利的分数要求
+#define AMMUNITION_RANGE	750			
+#define BOMB_RANGE			   80			  
+#define	BOMB_BLAST_RANGE	150			
+
+#define START_BOMB_NUMBER	 0			
+#define WIN_SCORE			500000		
 
 
-// 基类
+
 class BaseObject{
 public:
 	BaseObject(float a=0,float b=0,int l=0,float s=0,float d=0,int k=0){
@@ -44,24 +44,24 @@ public:
 	void	setSpeed(float s){speed=s;}
 
 protected:
-	float x;				// 该OBJECT的X轴坐标	
-	float y;				// 该OBJECT的Y轴坐标
-	float speed;			// 该OBJECT的移动速度
-	int life;				// 该OBJECT的生命值(或有效值)
+	float x;				
+	float y;				
+	float speed;			
+	int life;				
 
-	float direction;		// 该OBJECT移动的方向角,取与X正方向夹角
-	int kind;				// 该OBJECT所属的类型,在不同的派生类中有不同的意思
+	float direction;		
+	int kind;				
 
-	int blastNum;			// 爆炸记数,记录该OBJECT爆炸时轮换的图片	
-	int blastTime;			// 爆炸记时,当超过一定时间才轮换爆炸的下一张图片
+	int blastNum;			
+	int blastTime;			
 };
 
 
-// 玩家飞机类
+
 class PlayerPlane:public BaseObject{
 public:
-	PlayerPlane(float a=0,float b=0,int l=0,float s=0);		// 构造函数,通过初始化函数来,kind在该类中没有意义
-	void initPlane(float a,float b,int l,float s);			// 初绐化函数
+	PlayerPlane(float a=0,float b=0,int l=0,float s=0);		
+	void initPlane(float a,float b,int l,float s);			
 	
 	int getAmmunitionKind() {return ammunitionKind;}
 	int getBombNum() {return bombNum;}
@@ -77,56 +77,56 @@ public:
   void levelUp() { fireLevel++; }
   int getFireLevel() { return fireLevel;}
 
-	void moveUp();			// 上移
-	void moveDown();		// 下移
-	void moveRight();		// 右移
-	void moveLeft();		// 左移
-	void stay();			// 不动
+	void moveUp();			
+	void moveDown();		
+	void moveRight();		
+	void moveLeft();		
+	void stay();			
 
-	void draw();			// 绘制飞机
-	void blast();			// 被击中爆炸
-	void fire();			// 发射子弹
-	void fireBomb();		// 发射炸弹
-	void hitcomPlane();		// 碰撞到对方飞机
-	void update();			// 更新飞机参数
+	void draw();			
+	void blast();			
+	void fire();			
+	void fireBomb();		
+	void hitcomPlane();		
+	void update();			
 
 private:
-	int fireTime;			// 辅助控制射击频率的变量,以保证子弹的射速一致
-	int bombNum;			// 飞机目前存在的炸弹个数
-	int planeTexture;		// 飞机的贴图,分为左移,中间,右移三张贴图
-	int ammunitionKind;		// 目前飞机的子弹类型
-	int score;				// 歼灭敌人得到的分数
-  int fireInterval; //L
+	int fireTime;			
+	int bombNum;			
+	int planeTexture;		
+	int ammunitionKind;		
+	int score;				
+  int fireInterval; /*L default 100 */
   int fireLevel;
 };
 
-// 电脑飞机类，有kind=0,1,2三种电脑飞机
+
 class ComputerPlane:public BaseObject{
 public:
-	ComputerPlane(float a=0,float b=0,int l=0,float d=0,float s=0,int k=0);	//kind表示不同的敌机种类
+	ComputerPlane(float a=0,float b=0,int l=0,float d=0,float s=0,int k=0);	
 
 	bool getExplosible(){ return explosible;}
 	void setExplosible(bool b) {explosible=b;}
-	void setKind(int k);		// 设置敌机的种类，并设置在该种类下的敌机属性
+	void setKind(int k);		
 
-	void draw();				// 敌机绘制函数
-	void move();				// 敌机移动函数
-	void fire();				// 敌机射击函数
-	void blast();				// 敌机爆炸函数
-	void compinit();			// 敌机初始化函数
-	void update();				// 每一帧判断敌机处理事件
-	void leftaward();			// 敌机死后留下物品处理函数
-	void damaged(int damage);	// 设置敌机击中损伤函数
+	void draw();				
+	void move();				
+	void fire();				
+	void blast();				
+	void compinit();			
+	void update();				
+	void leftaward();			
+	void damaged(int damage);	
 
 private:
-	int fireTime;				// 辅助控制射击频率的变量,以保证子弹的射速一致
-	bool explosible;			// 控制该敌机是否要爆炸
-	int rewardScore;			// 敌机被击灭所奖励的分数
+	int fireTime;				
+	bool explosible;			
+	int rewardScore;			
   int fireInteral;
 };
 
-// 子弹类，有kind=0,1,2,3四种子弹
-//L, new kind=4, explodeLevel=100
+
+/*L new kind=4, explodeLevel=100 */
 class Ammunition:public BaseObject{
 public:
 	Ammunition(
@@ -135,7 +135,7 @@ public:
     float direction=0,
     float speed=0,
     int lift=0,
-    int kind=0);		// kind表示不同的子弹类型
+    int kind=0);		
 
 	void setOwner(int w) {owner=w;}
 	int getOwner() {return owner;}
@@ -146,26 +146,26 @@ public:
   void setX(float x_) {x=x_;};
   void setDirection(float d_) {direction=d_;};
 
-	void move();			// 子弹的移动
-	void draw();			// 子弹绘制
-	void blast();			// 子弹爆炸
-	void hitTheTarget();	// 子弹射中与否
+	void move();			
+	void draw();			
+	void blast();			
+	void hitTheTarget();	
 
 private:
-	bool explosible;		// 是否开始爆炸,为FALSE表示不用爆炸,为TRUE表示开始爆炸
-	float displacement;		// 子弹移动过的距离
-	int owner;				// 子弹所属,1为玩家,3为一般电脑
-	int explodeLevel;		// 子弹的杀伤力力
+	bool explosible;		
+	float displacement;		
+	int owner;				
+	int explodeLevel;		
 };
 
-// 物品类，有kind=0,1,2三种物品
+
 class Award:public BaseObject{
 public:
-	Award(float a=0,float b=0,float s=0,int l=0,int k=0);						//kind表示不同的物品类型
+	Award(float a=0,float b=0,float s=0,int l=0,int k=0);						
 
-	void draw();			// 物品的绘制函数
-	void move();			// 物品的移动函数
-	void eat();				// 物品是否被玩家飞机吃掉的检测函数
+	void draw();			
+	void move();			
+	void eat();				
 };
 
 #endif

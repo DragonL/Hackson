@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="5DG_Window.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Class.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -27,11 +24,11 @@
     <ClCompile Include="Texture.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="5DG_Window.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Class.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -39,6 +36,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Texture.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

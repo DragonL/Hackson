@@ -91,13 +91,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="5DG_Window.cpp" />
+    <ClCompile Include="Window.cpp" />
     <ClCompile Include="Class.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="5DG_Window.h" />
+    <ClInclude Include="Window.h" />
     <ClInclude Include="Class.h" />
     <ClInclude Include="Fmod.h" />
     <ClInclude Include="Texture.h" />
