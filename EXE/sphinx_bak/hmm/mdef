@@ -1,0 +1,81 @@
+0.3
+11 n_base
+60 n_tri
+284 n_state_map
+63 n_tied_state
+33 n_tied_ci_state
+11 n_tied_tmat
+#
+# Columns definitions
+#base lft  rt p attrib tmat      ... state id's ...
+  SIL   -   - - filler    0      0      1      2 N
+  ang   -   - -    n/a    1      3      4      5 N
+   ia   -   - -    n/a    2      6      7      8 N
+  ing   -   - -    n/a    3      9     10     11 N
+   ou   -   - -    n/a    4     12     13     14 N
+   sh   -   - -    n/a    5     15     16     17 N
+    t   -   - -    n/a    6     18     19     20 N
+   uo   -   - -    n/a    7     21     22     23 N
+    x   -   - -    n/a    8     24     25     26 N
+    y   -   - -    n/a    9     27     28     29 N
+    z   -   - -    n/a   10     30     31     32 N
+  ang  sh SIL e    n/a    1     33     34     35 N
+  ang  sh  sh e    n/a    1     33     34     35 N
+  ang  sh   t e    n/a    1     33     34     35 N
+  ang  sh   x e    n/a    1     33     34     35 N
+  ang  sh   y e    n/a    1     33     34     35 N
+  ang  sh   z e    n/a    1     33     34     35 N
+   ia   x SIL e    n/a    2     36     37     38 N
+   ia   x  sh e    n/a    2     36     37     38 N
+   ia   x   t e    n/a    2     36     37     38 N
+   ia   x   x e    n/a    2     36     37     38 N
+   ia   x   y e    n/a    2     36     37     38 N
+   ia   x   z e    n/a    2     36     37     38 N
+  ing   t SIL e    n/a    3     39     40     41 N
+  ing   t  sh e    n/a    3     39     40     41 N
+  ing   t   t e    n/a    3     39     40     41 N
+  ing   t   x e    n/a    3     39     40     41 N
+  ing   t   y e    n/a    3     39     40     41 N
+  ing   t   z e    n/a    3     39     40     41 N
+   ou   y SIL e    n/a    4     42     43     44 N
+   ou   y  sh e    n/a    4     42     43     44 N
+   ou   y   t e    n/a    4     42     43     44 N
+   ou   y   x e    n/a    4     42     43     44 N
+   ou   y   y e    n/a    4     42     43     44 N
+   ou   y   z e    n/a    4     42     43     44 N
+   sh SIL ang b    n/a    5     45     46     47 N
+   sh ang ang b    n/a    5     45     46     47 N
+   sh  ia ang b    n/a    5     45     46     47 N
+   sh ing ang b    n/a    5     45     46     47 N
+   sh  ou ang b    n/a    5     45     46     47 N
+   sh  uo ang b    n/a    5     45     46     47 N
+    t SIL ing b    n/a    6     48     49     50 N
+    t ang ing b    n/a    6     48     49     50 N
+    t  ia ing b    n/a    6     48     49     50 N
+    t ing ing b    n/a    6     48     49     50 N
+    t  ou ing b    n/a    6     48     49     50 N
+    t  uo ing b    n/a    6     48     49     50 N
+   uo   z SIL e    n/a    7     51     52     53 N
+   uo   z  sh e    n/a    7     51     52     53 N
+   uo   z   t e    n/a    7     51     52     53 N
+   uo   z   x e    n/a    7     51     52     53 N
+   uo   z   y e    n/a    7     51     52     53 N
+   uo   z   z e    n/a    7     51     52     53 N
+    x SIL  ia b    n/a    8     54     55     56 N
+    x ang  ia b    n/a    8     54     55     56 N
+    x  ia  ia b    n/a    8     54     55     56 N
+    x ing  ia b    n/a    8     54     55     56 N
+    x  ou  ia b    n/a    8     54     55     56 N
+    x  uo  ia b    n/a    8     54     55     56 N
+    y SIL  ou b    n/a    9     57     58     59 N
+    y ang  ou b    n/a    9     57     58     59 N
+    y  ia  ou b    n/a    9     57     58     59 N
+    y ing  ou b    n/a    9     57     58     59 N
+    y  ou  ou b    n/a    9     57     58     59 N
+    y  uo  ou b    n/a    9     57     58     59 N
+    z SIL  uo b    n/a   10     60     61     62 N
+    z ang  uo b    n/a   10     60     61     62 N
+    z  ia  uo b    n/a   10     60     61     62 N
+    z ing  uo b    n/a   10     60     61     62 N
+    z  ou  uo b    n/a   10     60     61     62 N
+    z  uo  uo b    n/a   10     60     61     62 N
