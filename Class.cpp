@@ -320,19 +320,19 @@ void ComputerPlane::setKind(int k)
 		speed=2;
 		life=150;
 		rewardScore=100;
-    fireInteral = 1000;
+    fireInteral = 2000;
 	}else if(k==1){
 		kind=1;
 		speed=3;
 		life=100;
 		rewardScore=200;
-    fireInteral = 1000;
+    fireInteral = 2000;
 	}else if(k==2){
 		kind=2;
 		speed=1;
 		life=300;
 		rewardScore=500;
-    fireInteral = 1200;
+    fireInteral = 2400;
 	}
 }
 
@@ -646,7 +646,7 @@ void Ammunition::hitTheTarget()
 		if(distance(myPlane.getX(),myPlane.getY(),x,y)<=15 && myPlane.getLife()>0){			
 			life=0;
 			explosible=true;			
-			myPlane.setLife(myPlane.getLife()-explodeLevel/3);
+			myPlane.setLife(myPlane.getLife()-explodeLevel/5);
 		}
 #endif
 	}
