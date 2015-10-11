@@ -75,6 +75,7 @@ public:
   int getFireInterval() {return fireInterval;}
 
   void levelUp() { fireLevel++; }
+  void setFireLevel(int f) { fireLevel = f;}
   int getFireLevel() { return fireLevel;}
 
 	void moveUp();			

@@ -1,4 +1,5 @@
 #include "Window.h"
+#include "Voice.h"
 
 void TerminateApplication(GL_Window* window)
 {
@@ -314,6 +315,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		MessageBox(HWND_DESKTOP, "Error Registering Window Class!", "Error", MB_OK | MB_ICONEXCLAMATION);
 		return -1;														
 	}
+
+  init_voice_ctrl();
+  start_void_ctrl();
 
 	g_isProgramLooping = TRUE;											
 	g_createFullScreen = window.init.isFullScreen;						

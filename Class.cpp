@@ -8,6 +8,8 @@
 #include "fmod.h"
 #include "texture.h"
 
+//#define TEST
+
 
 extern TextureTga	playertex[3];				
 extern TextureTga  computertex[3];
@@ -644,7 +646,7 @@ void Ammunition::hitTheTarget()
 		if(distance(myPlane.getX(),myPlane.getY(),x,y)<=15 && myPlane.getLife()>0){			
 			life=0;
 			explosible=true;			
-			myPlane.setLife(myPlane.getLife()-explodeLevel);
+			myPlane.setLife(myPlane.getLife()-explodeLevel/3);
 		}
 #endif
 	}

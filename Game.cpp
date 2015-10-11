@@ -13,6 +13,7 @@
 #include "Class.h"			
 #include "Fmod.h"			
 #include "Texture.h"		
+#include "Voice.h"
 
 
 #pragma comment(lib, "opengl32.lib")
@@ -63,6 +64,14 @@ Ammunition ammunitions[MAX_AMMUNITION];
 
 extern int numActiveComputer;
 
+bool voice_left = false;
+bool voice_right = false;
+bool voice_up = false;
+bool voice_down = false;
+
+extern char last_voice_command[128];
+extern unsigned last_count;
+extern DWORD tick_elapse;
 
 void setTimer()
 {
@@ -89,6 +98,7 @@ void GameInit(void)
   }
   */
   ComputerPlane com;
+  computers.clear();
   com.compinit();
   computers.push_back(com);
   com.compinit();
@@ -96,9 +106,10 @@ void GameInit(void)
   com.compinit();
   computers.push_back(com);
 	myPlane.initPlane(0,-230,100,2);				
-	myPlaneNum=MAX_PLAYER;							
+	myPlaneNum=MAX_PLAYER;	
+  myPlane.setFireLevel(0);
 	starttime=0;									
-	startQuadOffset=0;								
+	startQuadOffset=0;
 }
 
 
@@ -281,7 +292,6 @@ void Opening(void)
 	glPrint("Mission : Earn %d Score! ", winscore);
 }
 
-
 void Running(void)
 {
 	int i;
@@ -326,6 +336,7 @@ void Running(void)
 	startp=false;
 
   /*L MAX 12 LEVEL */
+  /*
   if (killed >= (computers.size() << 3) && computers.size() <= 11 )
   {
     ComputerPlane com;
@@ -333,6 +344,7 @@ void Running(void)
     computers.push_back(com);
     killed = 0;
   }
+  */
 
 	glEnable(GL_BLEND);				
 	
@@ -360,17 +372,18 @@ void Running(void)
 	}
 
 	
-	
-	if(OGL_keys->keyDown['W']==TRUE)
+	/*L: Add Voice Ctrl */
+	if(OGL_keys->keyDown['W']==TRUE || voice_up)
 		myPlane.moveUp();
-	else if(OGL_keys->keyDown['S']==TRUE)
+	else if(OGL_keys->keyDown['S']==TRUE || voice_down)
 		myPlane.moveDown ();
-	if(OGL_keys->keyDown['A']==TRUE)
+	if(OGL_keys->keyDown['A']==TRUE || voice_left)
 		myPlane.moveLeft ();
-	else if(OGL_keys->keyDown['D']==TRUE)
+	else if(OGL_keys->keyDown['D']==TRUE || voice_right)
 		myPlane.moveRight ();
 	else
 		myPlane.stay();
+
 
   /*L: Fire always  */
   myPlane.fire();
@@ -412,6 +425,11 @@ void Running(void)
   glPushMatrix();
   glRasterPos3f(140.0f, -245.0f, 5.0);
   glPrint("LEVEL:%u", computers.size());
+  glPopMatrix();
+
+  glPushMatrix();
+  glRasterPos3f(-200.0f, -205.0f, 5.0);
+  glPrint("VOICE:%s, %u, %u", last_voice_command, last_count, tick_elapse);
   glPopMatrix();
 
 #ifdef TEST
@@ -564,10 +582,10 @@ void Update(void)
 		start=!start;
 		startp=true;
 		if(start){
-			FMUSIC_PlaySong(sound_4);
+			//FMUSIC_PlaySong(sound_4);
 			GameInit();											
 		}else{
-			FMUSIC_StopSong(sound_4);
+			//FMUSIC_StopSong(sound_4);
 		}
 	}
 	if(OGL_keys->keyDown[VK_F5] == FALSE)
