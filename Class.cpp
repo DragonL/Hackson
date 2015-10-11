@@ -646,7 +646,7 @@ void Ammunition::hitTheTarget()
 		if(distance(myPlane.getX(),myPlane.getY(),x,y)<=15 && myPlane.getLife()>0){			
 			life=0;
 			explosible=true;			
-			myPlane.setLife(myPlane.getLife()-explodeLevel/5);
+			myPlane.setLife(myPlane.getLife()-explodeLevel/4);
 		}
 #endif
 	}
